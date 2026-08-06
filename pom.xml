@@ -469,6 +469,7 @@
         <central-publishing-maven-plugin.version>0.11.0</central-publishing-maven-plugin.version>
         <lombok.version>1.18.46</lombok.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.version>3.6.3</maven.version>
         <junit.version>4.13.2</junit.version>
         <java.version>17</java.version>
         <!-- Maven Plugin versions -->
