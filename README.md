@@ -4,6 +4,8 @@
 
 [![Java](https://img.shields.io/badge/Java-17-orange)](https://github.com/easy-4-java/pack-with-assembly) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
+pack-with-assembly is a set of Maven packaging examples that build runnable application distributions with
+
 ## Table of Contents
 
 - [1. Project Overview](#1-project-overview)
