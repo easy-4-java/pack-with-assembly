@@ -4,6 +4,8 @@
 
 [![Java](https://img.shields.io/badge/Java-8-orange)](https://github.com/easy-4-java/pack-with-assembly) [![License](https://img.shields.io/badge/license-Apache%202.0-green)](./LICENSE)
 
+pack-with-assembly 是一组使用 maven-assembly-plugin 与 maven-dependency-plugin 制作可运行应用发行包的 Maven 打包示例，为多模块 POM 项目，包含两套打包方案：
+
 ## 目录
 
 - [1. 项目概述](#1-项目概述)
