@@ -9,13 +9,13 @@
     <description>基于struts2 + Jackson 的扩展实现</description>
     <packaging>pom</packaging>
 
-    
+    <!-- 项目子模块（modules） -->
     <modules>
         <module>pack-with-assembly-jsw</module>
         <module>pack-with-assembly-tomcat</module>
     </modules>
 
-    
+    <!-- 开源协议采用 Apache 2.0 协议 -->
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -23,7 +23,7 @@
         </license>
     </licenses>
 
-    
+    <!-- 源码仓库（SCM）信息 -->
     <scm>
         <connection>scm:git:https://github.com/easy-4-java/${project.artifactId}.git</connection>
         <developerConnection>scm:git:https://github.com/easy-4-java/${project.artifactId}.git</developerConnection>
@@ -31,7 +31,7 @@
         <tag>${project.artifactId}</tag>
     </scm>
 
-    
+    <!-- 开发者信息 -->
     <developers>
         <developer>
             <name>Loong Wan</name>
@@ -44,7 +44,7 @@
         </developer>
     </developers>
 
-    
+    <!-- 制品发布仓库配置（distributionManagement） -->
     <distributionManagement>
         <repository>
             <id>2624322-release-6F6h6R</id>
@@ -131,64 +131,65 @@
         </repository>
     </repositories>
 
-    
+    <!-- 构建配置（Build） -->
     <build>
         <pluginManagement>
             <plugins>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-antrun-plugin -->
                 <plugin>
-                    
+                    <!-- Ant 任务插件：执行 Ant 脚本 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-antrun-plugin</artifactId>
                     <version>${maven-antrun-plugin.version}</version>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-assembly-plugin -->
                 <plugin>
-                    
+                    <!-- 打包插件：自定义打包结构 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-assembly-plugin</artifactId>
                     <version>${maven-assembly-plugin.version}</version>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
                 <plugin>
-                    
+                    <!-- 编译插件：编译主代码至主输出目录 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>${maven-compiler-plugin.version}</version>
                     <configuration>
-                        <release>${java.version}</release>
                         <defaultLibBundleDir>lib</defaultLibBundleDir>
-                        
-                        
-                        
+                        <!-- 源代码编译版本 -->
+                        <source>${java.version}</source>
+                        <!-- 目标平台编译版本 -->
+                        <target>${java.version}</target>
+                        <!-- 字符集编码 -->
                         <encoding>${project.build.sourceEncoding}</encoding>
-                        
+                        <!-- 编译最大内存 -->
                         <maxmem>512M</maxmem>
                     </configuration>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-dependency-plugin -->
                 <plugin>
-                    
+                    <!-- 依赖检查插件：分析项目依赖 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-dependency-plugin</artifactId>
                     <version>${maven-dependency-plugin.version}</version>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
                 <plugin>
-                    
+                    <!-- 发布插件：将项目输出构件部署到远程仓库 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
                     <version>${maven-deploy-plugin.version}</version>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-enforcer-plugin -->
                 <plugin>
-                    
+                    <!-- 环境检查插件：代码编译前的环境监察 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-enforcer-plugin</artifactId>
                     <version>${maven-enforcer-plugin.version}</version>
@@ -219,9 +220,9 @@
                     </executions>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                 <plugin>
-                    
+                    <!-- 签名插件：对制品进行 PGP 签名 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-gpg-plugin</artifactId>
                     <version>${maven-gpg-plugin.version}</version>
@@ -236,17 +237,17 @@
                     </executions>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
                 <plugin>
-                    
+                    <!-- 安装插件：将项目输出构件安装到本地仓库 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-install-plugin</artifactId>
                     <version>${maven-install-plugin.version}</version>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
                 <plugin>
-                    
+                    <!-- 资源插件：复制主资源文件至主输出目录 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-resources-plugin</artifactId>
                     <version>${maven-resources-plugin.version}</version>
@@ -255,9 +256,9 @@
                     </configuration>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-release-plugin -->
                 <plugin>
-                    
+                    <!-- 发布管理插件：版本发布与标签管理 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>${maven-release-plugin.version}</version>
@@ -270,9 +271,9 @@
                     </configuration>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-source-plugin -->
                 <plugin>
-                    
+                    <!-- 源码插件：发布时自动将源码同时发布 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-source-plugin</artifactId>
                     <version>${maven-source-plugin.version}</version>
@@ -291,9 +292,9 @@
                     </executions>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin -->
                 <plugin>
-                    
+                    <!-- 单元测试插件：执行测试用例 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>${maven-surefire-plugin.version}</version>
@@ -301,7 +302,7 @@
                         <skip>false</skip>
                         <skipTests>false</skipTests>
                         <forkMode>once</forkMode>
-                        <argLine>-Xmx1024m   -Dfile.encoding=UTF-8</argLine>
+                        <argLine>-Xmx1024m -Dfile.encoding=UTF-8</argLine>
                         <additionalClasspathElements>
                             <additionalClasspathElement>${project.basedir}/target/test-classes</additionalClasspathElement>
                         </additionalClasspathElements>
@@ -314,9 +315,9 @@
                     </configuration>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
                 <plugin>
-                    
+                    <!-- jar 包生成插件：创建项目 jar 包 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-jar-plugin</artifactId>
                     <version>${maven-jar-plugin.version}</version>
@@ -332,9 +333,9 @@
                     </configuration>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-javadoc-plugin -->
                 <plugin>
-                    
+                    <!-- 文档插件：发布时自动生成 Javadoc 并发布 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <version>${maven-javadoc-plugin.version}</version>
@@ -356,7 +357,7 @@
                     </executions>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/nexus-staging-maven-plugin -->
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>nexus-staging-maven-plugin</artifactId>
@@ -372,16 +373,16 @@
                     </configuration>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.sonatype.plugins/yuicompressor-maven-plugin -->
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
                     <artifactId>yuicompressor-maven-plugin</artifactId>
                     <version>${maven-nexus-yuicompressor-plugin.version}</version>
                 </plugin>
 
-                
+                <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-war-plugin -->
                 <plugin>
-                    
+                    <!-- 打包插件：构建 Web 应用 war 包 -->
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-war-plugin</artifactId>
                     <version>${maven-war-plugin.version}</version>
@@ -393,9 +394,9 @@
         </pluginManagement>
         <plugins>
 
-            
+            <!-- https://mvnrepository.com/artifact/org.jacoco/jacoco-maven-plugin -->
             <plugin>
-                
+                <!-- 覆盖率插件：生成覆盖率报告并校验测试覆盖率（目标 90%） -->
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${maven-jacoco-plugin.version}</version>
@@ -438,15 +439,16 @@
                 </executions>
             </plugin>
 
-            
+            <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
             <plugin>
-                
+                <!-- 编译插件：编译主代码至主输出目录 -->
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>${maven-compiler-plugin.version}</version>
                 <configuration>
-                    <release>${java.version}</release>
-                        
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                    <!-- 保留方法参数名，支持 Spring MVC 按参数名绑定 -->
                     <parameters>true</parameters>
                     <encoding>${project.build.sourceEncoding}</encoding>
                     <maxmem>512M</maxmem>
@@ -462,14 +464,14 @@
         </plugins>
     </build>
 
-    
+    <!-- 版本属性定义：Java 版本、依赖版本与 Maven 插件版本统一管理 -->
     <properties>
-            <java.version>21</java.version>
+            <java.version>8</java.version>
             <maven.compiler.release>${java.version}</maven.compiler.release>
             <maven.version>3.6.3</maven.version>
             <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
             <!-- Dependency versions -->
-            <junit-jupiter.version>6.1.0</junit-jupiter.version>
+            <junit-jupiter.version>5.11.4</junit-jupiter.version>
             <junit.version>4.13.2</junit.version>
             <lombok.version>1.18.46</lombok.version>
             <slf4j.version>2.0.18</slf4j.version>
@@ -492,34 +494,34 @@
             <maven-release-plugin.version>3.3.1</maven-release-plugin.version>
             <maven-resources-plugin.version>3.5.0</maven-resources-plugin.version>
             <maven-source-plugin.version>3.4.0</maven-source-plugin.version>
-            <maven-surefire-plugin.version>3.5.2</maven-surefire-plugin.version>
+            <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
             <maven-war-plugin.version>3.2.2</maven-war-plugin.version>
     </properties>
 
-    
+    <!-- 依赖版本统一管理（dependencyManagement） -->
     <dependencyManagement>
         <dependencies>
-            
+            <!-- For Junit -->
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
-            
+            <!-- For Slf4j -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
                 <version>${slf4j.version}</version>
             </dependency>
-            
+            <!-- For Slf4j -->
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-simple</artifactId>
                 <version>${slf4j.version}</version>
                 <scope>test</scope>
             </dependency>
-            
+            <!-- For Lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
@@ -529,20 +531,20 @@
         </dependencies>
     </dependencyManagement>
 
-    
+    <!-- 项目依赖（dependencies） -->
     <dependencies>
-        
+        <!-- For Junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
-        
+        <!-- For Slf4j -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-api</artifactId>
         </dependency>
-        
+        <!-- For Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -550,18 +552,18 @@
         </dependency>
     </dependencies>
 
-    
+    <!-- 构建 Profile 配置 -->
     <profiles>
-        
+        <!-- 发布到 Maven Central Portal：mvn -Pcentral deploy（GPG 签名 + 源码 + Javadoc + Central 发布插件） -->
 
         <profile>
             <id>central</id>
             <build>
                 <plugins>
 
-                    
+                    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-gpg-plugin -->
                     <plugin>
-                        
+                        <!-- 签名插件：对制品进行 PGP 签名 -->
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-gpg-plugin</artifactId>
                         <version>${maven-gpg-plugin.version}</version>
@@ -576,9 +578,9 @@
                         </executions>
                     </plugin>
 
-                    
+                    <!-- https://mvnrepository.com/artifact/org.sonatype.central/central-publishing-maven-plugin -->
                     <plugin>
-                        
+                        <!-- 发布插件：将制品发布到 Maven Central Portal -->
                         <groupId>org.sonatype.central</groupId>
                         <artifactId>central-publishing-maven-plugin</artifactId>
                         <version>${maven-central-publishing-plugin.version}</version>

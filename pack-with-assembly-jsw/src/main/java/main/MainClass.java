@@ -3,20 +3,24 @@ package main;
 import service.FileLogger;
 
 /**
- * 程序主入口
- * 
- * @author mason
+ * Application entry point for the Java Service Wrapper (JSW) deployment.
+ * Sets the working directory to the classpath root and invokes the file logger.
  *
+ * @author <a href="https://github.com/loong10k">Loong Wan</a>
  */
 public class MainClass {
 
-	public static void main(String[] args) {
-		//日志输出到程序根目录(classpath)
-		String workDir = FileLogger.class.getResource("/").getPath();
-		System.setProperty("WORKDIR", workDir);
+    /**
+     * Main method that bootstraps the JSW-wrapped application.
+     *
+     * @param args command-line arguments (unused)
+     */
+    public static void main(String[] args) {
+        String workDir = FileLogger.class.getResource("/").getPath();
+        System.setProperty("WORKDIR", workDir);
 
-		FileLogger logger = new FileLogger();
-		logger.logInfo2file();
-	}
+        FileLogger logger = new FileLogger();
+        logger.logInfo2file();
+    }
 
 }
