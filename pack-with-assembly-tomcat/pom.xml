@@ -259,13 +259,42 @@
 			    <type>zip</type>
 			</dependency>
 			
-		</dependencies>
+	
+	</dependencies>
 	</dependencyManagement>
 	
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/org.apache.tomcat/apache-tomcat -->
 		
 		
+	
+		<!-- SLF4J API -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<!-- SLF4J Simple (test) -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+			<version>${slf4j.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- JUnit Jupiter -->
+		<dependency>
+			<groupId>org.junit.jupiter</groupId>
+			<artifactId>junit-jupiter</artifactId>
+			<version>${junit-jupiter.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<!-- AssertJ -->
+		<dependency>
+			<groupId>org.assertj</groupId>
+			<artifactId>assertj-core</artifactId>
+			<version>3.27.3</version>
+			<scope>test</scope>
+		</dependency>
 	</dependencies>
 
 </project>
